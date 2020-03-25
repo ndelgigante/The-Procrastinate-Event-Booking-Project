@@ -4,6 +4,7 @@ UML DOCUMENT: https://www.lucidchart.com/invitations/accept/81d32c73-a359-48d7-8
 
 keep up to date if you make changes
 
+
 arbitrary assignments based on the clear 1/4 division of UML document:
 
 
