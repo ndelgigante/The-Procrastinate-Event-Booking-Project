@@ -1,8 +1,8 @@
 # The-Procrastinate-Event-Booking-Project
 
 UML DOCUMENT: https://www.lucidchart.com/invitations/accept/81d32c73-a359-48d7-8df7-554142f76ee4
+
 keep up to date if you make changes
-or else
 
 arbitrary assignments based on the clear 1/4 division of UML document:
 
