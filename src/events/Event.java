@@ -13,11 +13,13 @@ public class Event {
 	private MaturityRating maturityRating;
 	private String description;
 	private ArrayList<Review> reviews;
+	private double reviewAvg;
 	
 	public Event() {}
 
 	public String getName() {
 		return name;
+		
 	}
 	
 	public MaturityRating getMaturityRating() {
@@ -28,20 +30,8 @@ public class Event {
 		return description;
 	}
 	
-	/**
-	 * calculates the average star rating from the reviews of the event
-	 * @return the average star rating of the event
-	 */
 	public double getReviewAvg() {
-		Iterator<Review> iterator = reviews.iterator();
-		int count = 0;
-		int total = 0;
-		while(iterator.hasNext()) {
-			Review review = iterator.next();
-			count++;
-			total = review.getStarRating();
-		}
-		return total/count;
+		return reviewAvg;
 	}
 
 	public void setName(String name) {
@@ -62,6 +52,7 @@ public class Event {
 	 */
 	public void addReview(Review review) {
 		reviews.add(review);
+		averageReviews();
 	}
 	
 	/**
@@ -70,6 +61,21 @@ public class Event {
 	 */
 	public void deleteReview(Review review) {
 		reviews.remove(review);
+	}
+	
+	/**
+	 * calculates the average star rating from the reviews of the event
+	 */
+	private void averageReviews() {
+		Iterator<Review> iterator = reviews.iterator();
+		int count = 0;
+		int total = 0;
+		while(iterator.hasNext()) {
+			Review review = iterator.next();
+			count++;
+			total = review.getStarRating();
+		}
+		reviewAvg = total/count;
 	}
 	
 	
