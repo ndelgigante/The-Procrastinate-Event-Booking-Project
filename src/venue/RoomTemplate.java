@@ -11,4 +11,7 @@ public class RoomTemplate {
 		this.seatingArrangement = seatingArrangement;
 		this.identifier = identifier;	
 	}
+	SeatAvailability[][] getSeatingArrangement(){
+		return seatingArrangement;
+	}
 }
