@@ -15,6 +15,6 @@ public class Room {
 		
 		SeatAvailability[][] temp =	roomTemplate.getSeatingArrangement();
 		temp[x][y] = seatAvailability;
-		roomTemplate = RoomTemplate(temp, 0);
+		roomTemplate = new RoomTemplate(temp, 0);
 	}
 }
