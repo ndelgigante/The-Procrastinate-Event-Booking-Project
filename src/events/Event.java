@@ -15,7 +15,13 @@ public class Event {
 	private ArrayList<Review> reviews;
 	private double reviewAvg;
 	
-	public Event() {}
+	public Event(String name, MaturityRating maturityRating, String description) {
+		setName(name);
+		setRating(maturityRating);
+		setDescription(description);
+		reviews = new ArrayList<Review>();
+		reviewAvg = 0.0;
+	}
 
 	public String getName() {
 		return name;
@@ -78,5 +84,7 @@ public class Event {
 		reviewAvg = total/count;
 	}
 	
-	
+	public void print() {
+		System.out.println("Name: "+ name + " MR: " + maturityRating + " Desc: " + description);
+	}
 }
