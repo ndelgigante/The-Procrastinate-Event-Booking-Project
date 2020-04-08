@@ -1,3 +1,4 @@
+package venue;
 import java.util.ArrayList;
 /**
  * 
@@ -18,10 +19,19 @@ public class Venue {
 	void removeRoom(RoomTemplate roomTemplate) {
 		rooms.remove(roomTemplate);
 	}
-	ArrayList<RoomTemplate> getRooms(){
+	public ArrayList<RoomTemplate> getRooms(){
 		return rooms;
 	}
-	RoomTemplate getRoom(int identifier) {
+	
+	public RoomTemplate getRoom(int identifier) {
 		return rooms.get(identifier);
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void print() {
+		System.out.println("Name: " + name + " NumRooms: " + rooms.size());
 	}
 }
