@@ -109,10 +109,23 @@ public class ShowingManager {
 			return;
 		}
 		
-		// TODO: allow input for time and date
-		LocalDateTime time = LocalDateTime.now();
+		// get date input
+		System.out.println("Its time to enter the date and time\n");
+		
+		System.out.println("Enter the year\n");
+		int year = scanner.nextInt();
+		System.out.println("Enter the month (1-12)\n");
+		int month = scanner.nextInt();
+		System.out.println("Enter the day\n");
+		int day = scanner.nextInt();
+		System.out.println("Enter the hour\n");
+		int hour = scanner.nextInt();
+		System.out.println("Enter the minute\n");
+		int minute = scanner.nextInt();
+		
+		LocalDateTime time = LocalDateTime.of(year, month, day, hour, minute);
 				
-		Showing showing = new Showing(selectedEvent, selectedVenue, roomIdentifier, time);
+		Showing showing = new Showing(selectedEvent, selectedVenue, roomIdentifier-1, time);
 		addShowing(showing);	
 	}
 	

@@ -8,11 +8,16 @@ public class RoomTemplate {
 	private SeatAvailability[][] seatingArrangement;
 	private int identifier;
 	
-	RoomTemplate(SeatAvailability[][] seatingArrangement, int identifier){
+	public RoomTemplate(SeatAvailability[][] seatingArrangement, int identifier){
 		this.seatingArrangement = seatingArrangement;
 		this.identifier = identifier;	
 	}
-	SeatAvailability[][] getSeatingArrangement(){
+	
+	public SeatAvailability[][] getSeatingArrangement(){
 		return seatingArrangement;
+	}
+	
+	public SeatAvailability[][] getSeatingArangement() {
+		return this.seatingArrangement;
 	}
 }

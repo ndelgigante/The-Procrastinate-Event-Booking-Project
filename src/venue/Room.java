@@ -8,16 +8,15 @@ package venue;
 public class Room {
 	private RoomTemplate roomTemplate;
 	
-	public Room(RoomTemplate roomTemplate){
+	public Room(RoomTemplate roomTemplate) {
 		this.roomTemplate = roomTemplate;
 	}
 	
-	SeatAvailability[][] getSeating(){
+	public SeatAvailability[][] getSeating() {
 		return roomTemplate.getSeatingArrangement();
 	}
 	
-	void setSeatAvailability(SeatAvailability seatAvailability, int x, int y){
-		
+	public void setSeatAvailability(SeatAvailability seatAvailability, int x, int y) {
 		SeatAvailability[][] temp =	roomTemplate.getSeatingArrangement();
 		temp[x][y] = seatAvailability;
 		roomTemplate = new RoomTemplate(temp, 0);

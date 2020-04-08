@@ -14,7 +14,7 @@ public class VenueCollection {
 		venues = new ArrayList<Venue>();
 	}
 	
-	void addVenue(Venue venue){
+	public void addVenue(Venue venue){
 		venues.add(venue);
 	}
 	

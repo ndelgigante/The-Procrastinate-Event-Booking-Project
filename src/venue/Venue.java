@@ -9,16 +9,19 @@ public class Venue {
 	private String name;
 	private ArrayList<RoomTemplate> rooms;
 	
-	Venue(String name){
+	public Venue(String name){
 		this.name = name;
 		rooms = new ArrayList<RoomTemplate>();
 	}
-	void addRoom(RoomTemplate roomTemplate){
+	
+	public void addRoom(RoomTemplate roomTemplate){
 		rooms.add(roomTemplate);
 	}
-	void removeRoom(RoomTemplate roomTemplate) {
+	
+	public void removeRoom(RoomTemplate roomTemplate) {
 		rooms.remove(roomTemplate);
 	}
+	
 	public ArrayList<RoomTemplate> getRooms(){
 		return rooms;
 	}
