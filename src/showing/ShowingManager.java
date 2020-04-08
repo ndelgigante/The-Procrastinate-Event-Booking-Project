@@ -1,5 +1,6 @@
 package showing;
-import java.util.ArrayList; import java.util.Iterator;
+import java.util.ArrayList; import java.util.Iterator; import java.util.Scanner; import java.time.*;
+import events.*; import venue.*;
 
 public class ShowingManager {
 	private ArrayList<Showing> showings;
@@ -57,5 +58,73 @@ public class ShowingManager {
 		}
 		
 		return searchResults;
+	}
+	
+	public void promptCreateShowing(EventManager eventManager, VenueCollection venueCollection) {
+		Scanner scanner = new Scanner(System.in);
+		
+		// get event
+		System.out.println("Enter the number of the event you would like to show");
+		ArrayList<Event> events = eventManager.getEvents();
+		int count = 0;
+				
+		for (Event event : events) {
+			count++;
+			System.out.println(count+". " + event.getName());
+		}
+		
+		int selected = scanner.nextInt() - 1; // indexed at one for UX, but array still starts at 0
+		Event selectedEvent = events.get(selected);
+		
+		if (selectedEvent == null) {
+			System.out.println("An error occured...");
+			return;
+		}
+		
+		// get venue
+		System.out.println("Enter the number of the venue the showing will take place in");
+		ArrayList<Venue> venues = venueCollection.getVenues();
+		count = 0;
+		
+		for (Venue venue : venues) {
+			count++;
+			System.out.println(count+". " + venue.getName());
+		}
+		
+		selected = scanner.nextInt() - 1;
+		Venue selectedVenue = venues.get(selected);
+		
+		if (selectedVenue == null) {
+			System.out.println("An error occured...");
+			return;
+		}
+		
+		// get room
+		System.out.println("This venue has rooms 0-"+selectedVenue.getRooms().size());
+		System.out.println("Enter the room # you would like this showing to take place in:");
+		
+		int roomIdentifier = scanner.nextInt();
+		if (roomIdentifier < 0 || roomIdentifier > selectedVenue.getRooms().size()) {
+			System.out.println("Invalid room number entered....");
+			return;
+		}
+		
+		// TODO: allow input for time and date
+		LocalDateTime time = LocalDateTime.now();
+				
+		Showing showing = new Showing(selectedEvent, selectedVenue, roomIdentifier, time);
+		addShowing(showing);	
+	}
+	
+	
+	public void printShowings() {
+		printShowings(new SearchParam());
+	}
+	
+	public void printShowings(SearchParam searchParam) {
+		ArrayList<Showing> results = getShowings(searchParam);
+		for (Showing showing: results) {
+			showing.print();
+		}
 	}
 }
