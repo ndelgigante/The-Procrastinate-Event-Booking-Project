@@ -1,6 +1,7 @@
 package events;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.ArrayList; import java.util.Scanner; import java.util.Iterator;
+import driver.*;
+
 /**
  * 
  * @author Nicholas Del Gigante
@@ -41,5 +42,33 @@ public class EventManager {
 		}
 		return null;
 	}
-
+	
+	public void promptCreateEvent() {
+		Scanner scanner = new Scanner(System.in);
+		String name;
+		MaturityRating rating;
+		String description;
+		
+		System.out.println("Enter a name:\n");
+		name = scanner.nextLine();
+		
+		System.out.println("Enter a maturity rating (G, PG, PG13, R, or NC17");
+		rating = Utility.promptGetMaturityRating();
+		
+		System.out.println("Enter a description:\n");
+		description = scanner.nextLine();
+		
+		addEvent(new Event(name, rating, description));
+		
+	}
+	
+	public void printAllEvents() {
+		System.out.println("Events: -------------------------");
+		
+		for (Event event : events) {
+			event.print();
+		}
+		
+		System.out.println("---------------------------------");
+	}
 }
