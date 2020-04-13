@@ -69,6 +69,7 @@ public class Event {
 	 */
 	public void deleteReview(Review review) {
 		reviews.remove(review);
+		averageReviews();
 	}
 	
 	/**
@@ -81,7 +82,11 @@ public class Event {
 		while(iterator.hasNext()) {
 			Review review = iterator.next();
 			count++;
-			total = review.getStarRating();
+			total += review.getStarRating();
+		}
+		if (count == 0) {
+			reviewAvg= 0;
+			return;
 		}
 		reviewAvg = total/count;
 	}
