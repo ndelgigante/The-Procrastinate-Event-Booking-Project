@@ -20,4 +20,8 @@ public class RoomTemplate {
 	public SeatAvailability[][] getSeatingArangement() {
 		return this.seatingArrangement;
 	}
+	
+	public int getIdentifier() {
+		return this.identifier;
+	}
 }

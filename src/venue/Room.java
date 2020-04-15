@@ -21,4 +21,8 @@ public class Room {
 		temp[x][y] = seatAvailability;
 		roomTemplate = new RoomTemplate(temp, 0);
 	}
+	
+	public RoomTemplate getTemplate() {
+		return this.roomTemplate;
+	}
 }
